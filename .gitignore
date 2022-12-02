@@ -1,0 +1,5 @@
+# Project exclude paths
+/.gradle/
+/build/
+/build/js/packages/adventofcode2022/kotlin/
+/.idea/
