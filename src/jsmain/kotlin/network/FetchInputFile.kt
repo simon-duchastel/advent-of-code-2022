@@ -8,6 +8,7 @@ import kotlinx.browser.window
 fun fetchInput(problem: Problem, inputType: InputType, onComplete: (result: String) -> Unit) {
     val problemUrl = when(problem) {
         Problem.ONE -> "problem1"
+        Problem.TWO -> "problem2"
     }
     val inputTypeUrl = when (inputType) {
         is Sample -> "sample.txt"
