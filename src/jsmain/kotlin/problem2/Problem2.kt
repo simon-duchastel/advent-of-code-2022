@@ -1,7 +1,5 @@
 package com.duchastel.simon.adventofcode2022.problem2
 
-import com.duchastel.simon.adventofcode2022.logToConsole
-
 object Problem2 {
     fun solvePartOne(input: String): Int {
         return input.split("\n")
