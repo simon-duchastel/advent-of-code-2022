@@ -6,6 +6,7 @@ import com.duchastel.simon.adventofcode2022.network.InputType.Sample
 import kotlinx.browser.window
 
 fun fetchInput(problem: Problem, inputType: InputType, onComplete: (result: String) -> Unit) {
+    val relativeUrl = window.location.href
     val problemUrl = when(problem) {
         Problem.ONE -> "problem1"
         Problem.TWO -> "problem2"
@@ -15,7 +16,7 @@ fun fetchInput(problem: Problem, inputType: InputType, onComplete: (result: Stri
         is MainInput -> "input${inputType.num}.txt"
     }
 
-    window.fetch("/${problemUrl}/${inputTypeUrl}").then { response ->
+    window.fetch("$relativeUrl/${problemUrl}/${inputTypeUrl}").then { response ->
         response.text().then {
             onComplete(it)
         }
