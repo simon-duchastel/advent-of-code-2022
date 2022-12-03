@@ -10,6 +10,7 @@ fun fetchInput(problem: Problem, inputType: InputType, onComplete: (result: Stri
     val problemUrl = when(problem) {
         Problem.ONE -> "problem1"
         Problem.TWO -> "problem2"
+        Problem.THREE -> "problem3"
     }
     val inputTypeUrl = when (inputType) {
         is Sample -> "sample.txt"

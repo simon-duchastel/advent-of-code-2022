@@ -9,6 +9,7 @@ import com.duchastel.simon.adventofcode2022.network.InputType
 import com.duchastel.simon.adventofcode2022.network.fetchInput
 import com.duchastel.simon.adventofcode2022.problem1.Problem1
 import com.duchastel.simon.adventofcode2022.problem2.Problem2
+import com.duchastel.simon.adventofcode2022.problem3.Problem3
 import com.duchastel.simon.adventofcode2022.ui.AdventButton
 import org.jetbrains.compose.web.attributes.*
 import org.jetbrains.compose.web.css.*
@@ -25,9 +26,15 @@ fun main() {
 
         AdventButton(text = "Problem 1") {
             selectedProblem = Problem.ONE
+            result = "Not yet computed"
         }
         AdventButton(text = "Problem 2") {
             selectedProblem = Problem.TWO
+            result = "Not yet computed"
+        }
+        AdventButton(text = "Problem 3") {
+            selectedProblem = Problem.THREE
+            result = "Not yet computed"
         }
 
         Text(if (selectedProblem != null) "Selected problem #${selectedProblem}" else "No problem selected")
@@ -86,6 +93,34 @@ fun main() {
                 }
                 Text("Result: $result")
             }
+
+            Problem.THREE -> {
+                AdventButton(text = "Part 1 (Sample)") {
+                    result = "Loading..."
+                    fetchInput(Problem.THREE, InputType.Sample) {
+                        result = Problem3.solvePartOne(it).toString()
+                    }
+                }
+                AdventButton(text = "Part 1 (Actual)") {
+                    result = "Loading..."
+                    fetchInput(Problem.THREE, InputType.MainInput(1)) {
+                        result = Problem3.solvePartOne(it).toString()
+                    }
+                }
+                AdventButton(text = "Part 2 (Sample)") {
+                    result = "Loading..."
+                    fetchInput(Problem.THREE, InputType.Sample) {
+                        result = Problem3.solvePartTwo(it).toString()
+                    }
+                }
+                AdventButton(text = "Part 2 (Actual)") {
+                    result = "Loading..."
+                    fetchInput(Problem.THREE, InputType.MainInput(1)) {
+                        result = Problem3.solvePartTwo(it).toString()
+                    }
+                }
+                Text("Result: $result")
+            }
             null -> { /* Don't render anything */ }
         }
     }
@@ -93,5 +128,6 @@ fun main() {
 
 enum class Problem {
     ONE,
-    TWO
+    TWO,
+    THREE,
 }
