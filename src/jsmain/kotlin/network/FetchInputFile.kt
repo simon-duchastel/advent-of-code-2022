@@ -1,23 +1,19 @@
 package com.duchastel.simon.adventofcode2022.network
 
-import com.duchastel.simon.adventofcode2022.Problem
+import com.duchastel.simon.adventofcode2022.problems.Problem
 import com.duchastel.simon.adventofcode2022.network.InputType.MainInput
 import com.duchastel.simon.adventofcode2022.network.InputType.Sample
 import kotlinx.browser.window
 
 fun fetchInput(problem: Problem, inputType: InputType, onComplete: (result: String) -> Unit) {
     val relativeUrl = window.location.href
-    val problemUrl = when(problem) {
-        Problem.ONE -> "problem1"
-        Problem.TWO -> "problem2"
-        Problem.THREE -> "problem3"
-    }
+    val problemUrl = problem.urlPrefix
     val inputTypeUrl = when (inputType) {
         is Sample -> "sample.txt"
         is MainInput -> "input${inputType.num}.txt"
     }
 
-    window.fetch("$relativeUrl/${problemUrl}/${inputTypeUrl}").then { response ->
+    window.fetch("$relativeUrl/$problemUrl/$inputTypeUrl").then { response ->
         response.text().then {
             onComplete(it)
         }

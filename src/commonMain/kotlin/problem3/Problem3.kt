@@ -1,4 +1,4 @@
-package com.duchastel.simon.adventofcode2022.problem3
+package problem3
 
 object Problem3 {
     fun solvePartOne(input: String): Int {
