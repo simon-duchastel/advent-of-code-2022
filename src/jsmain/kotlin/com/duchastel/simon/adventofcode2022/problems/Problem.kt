@@ -1,8 +1,9 @@
 package com.duchastel.simon.adventofcode2022.problems
 
-import problem1.Problem1
-import problem2.Problem2
-import problem3.Problem3
+import com.duchastel.simon.adventofcode2022.problem1.Problem1
+import com.duchastel.simon.adventofcode2022.problem2.Problem2
+import com.duchastel.simon.adventofcode2022.problem3.Problem3
+import com.duchastel.simon.adventofcode2022.problem4.Problem4
 
 data class Problem(
     val name: String,
@@ -33,5 +34,12 @@ val problems = listOf(
         numInputs = 1,
         partOneSolution = { Problem3.solvePartOne(it).toString() },
         partTwoSolution = { Problem3.solvePartTwo(it).toString() },
+    ),
+    Problem(
+        name = "Problem Four",
+        urlPrefix = "problem4",
+        numInputs = 1,
+        partOneSolution = { Problem4.solvePartOne(it).toString() },
+        partTwoSolution = { Problem4.solvePartTwo(it).toString() },
     ),
 )
